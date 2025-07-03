@@ -11,15 +11,16 @@ pipeline {
             }
             steps {
                 sh '''
-                ls -la
-                node --version
-                npm --version
-                npm ci
-                npm run build
-                ls -la
+                    ls -la
+                    node --version
+                    npm --version
+                    npm ci
+                    npm run build
+                    ls -la
                 '''
             }
         }
+
         stage('Test') {
             agent {
                 docker {
@@ -28,7 +29,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'echo"Testing stage"'
+                sh 'echo "Testing stage"'
             }
         }
     }
